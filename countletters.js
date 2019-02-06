@@ -12,3 +12,5 @@ function countLetters(strings) {
       return counted;
     }
   console.log(countLetters("Lighthouse house house"));
+
+  

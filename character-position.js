@@ -3,7 +3,7 @@ function countLetters(strings) {
     for(var i = [0]; i < strings.length; i++) { //Loop begins at letter 1 and loops until end of word
         var addition = strings[i].toLowerCase();  //create a variable addtion to spit out string output //
         if(counted[addition]) {  
-            counted[addition].push(i); //pushes the index value
+            counted[addition].push(i); //pushes the index val
         } else {
             counted[addition] = [i];
         }
