@@ -10,4 +10,4 @@ function countLetters(strings) {
       }
       return counted;
     }
-  console.log(countLetters("Lighthouse in the house"));
+  console.log(countLetters("Lighthouse in the house"));  
