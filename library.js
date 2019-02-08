@@ -32,7 +32,7 @@ var library = {
     var printPlaylists = function () {
      for (var playlist in library.playlists) {
         var playlistIds = library.playlists[playlist]
-        //console.log(playlistIds.name) 
+       // Good to go console.log(playlistIds.name + " " + playlistIds.tracks)
       }
   } 
  printPlaylists() 
@@ -43,42 +43,48 @@ var library = {
   // t03: Four Thirty-Three by John Cage (Woodstock 1952)
   
   var printTracks = function () {
-    for (var tracklists in library.tracks) {
-        var theTracks = library.tracks[tracklists]
-      //  console.log(theTracks.name)
+    for (var AllTracks in library.tracks) {
+        var theTracks = library.tracks[AllTracks]
+       // good to console.log(theTracks.id + " " + theTracks.name + " by " + theTracks.artist)
+        
     }
   }
   printTracks()
   
   // prints a list of tracks for a given playlist, in the form:
   // p01: Coding Music - 2 tracks
-  // t01: Code Monkey by Jonathan Coulton (Thing a Week Three)
-  // t02: Model View Controller by James Dempsey (WWDC 2003)
+  // t01:Hail Mary by 2pac (The Don Killuminati)
+  // t02: Juicy by Notorious BIG (Ready to Die)
   
-  //create variables for playlist and tracks//
+  // We need the Playlist ID with number of tracks
+  //Two songs in the tracks 
 
   var printPlaylist = function (playlistId) {
-    var playID = library.playlists[playlistId]
+    var playID = library.playlists[playlistId];
     var playname = playID.name;
-    var playlisttracks = playID.tracks.length
+    var playlisttracks = playID.tracks.length;
+// console.log(playID, playname, playlisttracks.length) ;
 
     for (var i of playID.tracks){
         var trackname = library.tracks[i].name;
         var artistname = library.tracks[i].artist;
         var albumname = library.tracks [i].album;
-        console.log(trackname)
     }
 
-    console.log(trackname + " by " + artistname + " (" + albumname + ")")
+   // console.log(trackname + " by " + artistname + " (" + albumname + ")")
   }
   printPlaylist('p01')
   
   // adds an existing track to an existing playlist
   
+ 
   var addTrackToPlaylist = function (trackId, playlistId) {
-    console.log(addTrackToPlaylist)
+    var addplaylist =library.playlists[playlistId].tracks;
+    addplaylist.push(trackId);
+    console.log(addplaylist)
   }
   
+  addTrackToPlaylist('Crocketts Theme' , 'p01')
   
   // generates a unique id
   // (use this for addTrack and addPlaylist)
@@ -91,16 +97,34 @@ var library = {
   // adds a track to the library
   
   var addTrack = function (name, artist, album) {
-  
+   var UniqueID = uid ();
+
+   return library.tracks[UniqueID] = {
+     id: UniqueID,
+     name: name,
+     artist: artist,
+     album: album 
+
+   };
+   
+
   }
-  
-  
+  addTrack ('DNA', 'Movement' , 'Fantasy')
+  printTracks()
   // adds a playlist to the library
   
   var addPlaylist = function (name) {
-  
+    var playListRad = uid()
+    return library.playlist = {
+      id: playListRad,
+      name: name,
+      tracks: []
+    }
   }
+
+  addPlaylist('song')
   
+  console.log(library)
   
   // STRETCH:
   // given a query string string, prints a list of tracks
